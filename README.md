@@ -3,10 +3,10 @@ Command-line utility to list and optionally delete images from AWS ECR
 
 ## Usage
 
-	clean-ecr.py [-h] [--before BEFORE] [--after AFTER] [--untagged]
-				 [--prefix PREFIX] [--regexp REGEXP] [--invert]
-			     [--min-size MIN_SIZE] [--max-size MAX_SIZE] [--delete]
-			 	 repository
+	ecr.py [-h] [--before BEFORE] [--after AFTER] [--untagged]
+		   [--prefix PREFIX] [--regexp REGEXP] [--invert]
+		   [--min-size MIN_SIZE] [--max-size MAX_SIZE] [--delete]
+		   repository
 
 ## Examples
 
