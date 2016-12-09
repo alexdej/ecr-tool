@@ -23,9 +23,9 @@ parser.add_argument('--prefix', type=str, help="Match tag name by prefix")
 parser.add_argument('--regexp', type=str, help="Match tag name by regexp")
 parser.add_argument('--invert', '-v', action='store_true',
                     help="Invert tag matching: exclude instead of include")
-parser.add_argument('--min-size', type=int,
+parser.add_argument('--larger', type=int,
                     help="Only include images larger than this value in bytes")
-parser.add_argument('--max-size', type=int,
+parser.add_argument('--smaller', type=int,
                     help="Only include images smaller than this value in bytes")
 
 parser.add_argument('--delete', action='store_true', help="Delete matching images")
@@ -65,11 +65,11 @@ def main():
   if args.after:
     filters.append(lambda img: img.get('imagePushedAt') >= args.after)
 
-  if args.min_size:
-    filters.append(lambda img: img.get('imageSizeInBytes', 0) > args.min_size)
+  if args.larger:
+    filters.append(lambda img: img.get('imageSizeInBytes', 0) >= args.larger)
 
-  if args.max_size:
-    filters.append(lambda img: img.get('imageSizeInBytes', 0) > args.max_size)
+  if args.smaller:
+    filters.append(lambda img: img.get('imageSizeInBytes', 0) <= args.smaller)
 
   if args.untagged:
     filters.append(lambda img: not img.get('imageTags', []))

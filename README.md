@@ -24,7 +24,4 @@ Delete images *not* tagged `master*`:
 
 Delete images larger than 500MB:
 
-	python ecr.py myrepo --min-size 500000000 --delete
-
-
-
+	python ecr.py myrepo --larger 500000000 --delete
