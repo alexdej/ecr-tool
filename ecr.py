@@ -1,3 +1,5 @@
+#/usr/bin/python
+
 import argparse
 import boto3
 import dateutil.parser
